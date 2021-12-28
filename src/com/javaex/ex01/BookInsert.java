@@ -40,8 +40,10 @@ public class BookInsert {
 //					문자열을 쿼리문으로 만들기
 					pstmt = conn.prepareStatement(query);
 					
+					
+//					데이터 입력하기
 //					바인딩
-					pstmt.setString(1, "우리들의 일그러진 영웅");
+					pstmt.setString(1, "우리들의 일그러진 영웅10");
 					pstmt.setString(2, "다림");
 					pstmt.setString(3, "1998/02/22");
 					pstmt.setInt(4, 2);
