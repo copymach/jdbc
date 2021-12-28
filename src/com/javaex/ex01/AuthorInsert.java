@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class AuthorApp {
+public class AuthorInsert {
 
-	public AuthorApp() {
+	public AuthorInsert() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -25,7 +25,7 @@ public class AuthorApp {
 		// 1. JDBC 드라이버 (Oracle) 로딩 - 다른db라면 OracleDriver 이름도 달라짐 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-		// 2. Connection 얻어오기 -localhost 위치에 ip 주소입력 webdb가 id pw
+		// 2. Connection 얻어오기 -localhost 자리 ip 주소입력 / webdb 자리 id pw
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "webdb", "1234");
 			System.out.println("접속 성공");
@@ -35,7 +35,7 @@ public class AuthorApp {
 			String query = "";
 			
 //			query = query + "insert into author"; 
-//			tip 쿼리 에러를 피하기 위해 ""사이를 띄워서 써준다
+//			tip 쿼리 에러를 피하기 위해 ""사이를 띄워서 공백을 넣어준다
 			query += " insert into author ";
 			
 //			query = query + "values (seq_author_id.nextval, '이문열', '경북 영양')";
