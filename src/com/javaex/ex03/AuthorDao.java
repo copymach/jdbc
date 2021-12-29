@@ -1,4 +1,4 @@
-package com.javaex.ex02;
+package com.javaex.ex03;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,6 +10,8 @@ import java.util.List;
 
 public class AuthorDao {
 
+//필드
+	
 //생성자
 	public AuthorDao() { // 생략가능
 	}
@@ -19,7 +21,7 @@ public class AuthorDao {
 //메소드 일반
 
 //작가추가
-	public void authorInsert(String authorName, String authorDesc) {
+	public void authorInsert(AuthorVo authorVo) {
 
 		// 0. import java.sql.*;
 		Connection conn = null;
@@ -49,8 +51,8 @@ public class AuthorDao {
 			pstmt = conn.prepareStatement(query);
 
 //		바인딩		
-			pstmt.setString(1, authorName); // 첫번쨰 물음표의
-			pstmt.setString(2, authorDesc);// 두번째 물음표의 데이터
+			pstmt.setString(1, authorVo.getAuthorName()); // 첫번쨰 물음표의
+			pstmt.setString(2, authorVo.getAuthorDesc());// 두번째 물음표의 데이터
 
 //		실행
 			int count = pstmt.executeUpdate(); // 쿼리문 실행
@@ -139,7 +141,7 @@ public class AuthorDao {
 	} // 작가 삭제 끝
 
 //	작가 수정 시작
-	public void authorUpdate(int index, String authorName, String authorDesc) {
+	public void authorUpdate(AuthorVo authorVo) {
 
 		// 0. import java.sql.*;
 		Connection conn = null;
@@ -168,15 +170,15 @@ public class AuthorDao {
 			pstmt = conn.prepareStatement(query);
 
 //			바인딩
-			pstmt.setString(1, authorName);
-			pstmt.setString(2, authorDesc);
-			pstmt.setInt(3, index);
+			pstmt.setString(1, authorVo.getAuthorName());
+			pstmt.setString(2, authorVo.getAuthorDesc());
+			pstmt.setInt(3, authorVo.getAuthorId());
 
 //			실행
 			int count = pstmt.executeUpdate();
 //			int count = pstmt.executeUpdate(query); 쿼리값을 넣을 필요가 없다
 
-			System.out.println(index + "번 데이터, " + count + "건이 수정 되었습니다.");
+			System.out.println( count + "건이 수정 되었습니다.");
 
 			// 4.결과처리
 
@@ -257,7 +259,7 @@ public class AuthorDao {
 //	               String authorDesc= rs.getString(3);
 	               
 	               
-	               AuthorVo vo= new AuthorVo(authorId, authorName, authorDesc);
+	               AuthorVo vo= new AuthorVo(authorName, authorDesc);
 	               authorList.add(vo);
 	               
 	               // System.out.println(authorId+"\t"+authorName+"\t"+authorDesc);
