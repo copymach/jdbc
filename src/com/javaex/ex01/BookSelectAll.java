@@ -32,7 +32,7 @@ public class BookSelectAll {
 		// 3. SQL문 준비 / 바인딩 / 실행
 			
 			String query = "";
-			query += " select  author.author_id, ";
+			query += " select  author.author_id id, ";
 			query += "			author_name, ";
 			query += "			author_desc, ";
 			query += "			book_id, ";
@@ -57,23 +57,24 @@ public class BookSelectAll {
 			
 			
 			while (rs.next()) {
-				/*
-				int authorId = rs.getInt(1); author.author_id 써먹어보고싶은데 안된다
+				
+//				author.author_id 써먹어보고싶은데 안된다 -> SQL에서 별명 지어주고 별명 불러오는 것으로 해결
+				int authorId = rs.getInt("id"); 
 				String author_name = rs.getString("author_name");
 				String author_desc = rs.getString("author_desc");
 				int bookId = rs.getInt(1);
 				String title = rs.getString("title");
 				String pubs = rs.getString("pubs");
 				String pubDate = rs.getString("pub_date");
-			*/	
 				
-				int authorId = rs.getInt(1);
-				String author_name = rs.getString(2);
-				String author_desc = rs.getString(3);
-				int bookId = rs.getInt(4);
-				String title = rs.getString(5);
-				String pubs = rs.getString(6);
-				String pubDate = rs.getString(7);
+				
+//				int authorId = rs.getInt(1);
+//				String author_name = rs.getString(2);
+//				String author_desc = rs.getString(3);
+//				int bookId = rs.getInt(4);
+//				String title = rs.getString(5);
+//				String pubs = rs.getString(6);
+//				String pubDate = rs.getString(7);
 				
 				System.out.println(authorId+", "+author_name+", "+author_desc+", "+bookId+", "+title+", "+pubs+", "+pubDate);
 			}

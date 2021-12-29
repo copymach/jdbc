@@ -49,16 +49,16 @@ public class AuthorSelect {
          
           // 4.결과처리
             while(rs.next()) {
-               /*
+               
                int authorId= rs.getInt("id"); // 컬럼명이 id로 변경되었기 때문에
                String authorName= rs.getString("author_name");
                String authorDesc= rs.getString("author_desc");
                System.out.println(authorId+"\t"+authorName+"\t"+authorDesc);
-               */
                
-               int authorId= rs.getInt(1);
-               String authorName= rs.getString(2);
-               String authorDesc= rs.getString(3);
+               
+//               int authorId= rs.getInt(1);
+//               String authorName= rs.getString(2);
+//               String authorDesc= rs.getString(3);
                
                
                AuthorVO vo= new AuthorVO(authorId, authorName, authorDesc);
@@ -98,3 +98,4 @@ public class AuthorSelect {
       }
    }
 }
+
