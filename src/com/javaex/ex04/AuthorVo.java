@@ -10,7 +10,7 @@ public class AuthorVo {
 	private String authorDesc;
 
 //	생성자 컨스트럭터
-	public AuthorVo() {
+	public AuthorVo() { 
 	}
 
 	public AuthorVo(String authorName, String authorDesc) {
